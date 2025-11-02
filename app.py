@@ -686,7 +686,7 @@ def chat_with_ai(message, chat_history):
             if chat["role"] == "user":
                 formatted_history += f'<div class="chat-message user-message"><strong>You:</strong> {chat["content"]}</div>'
             else:
-                formatted_history += f'<div class="chat-message bot-message"><strong>Vitalmina </strong> {chat["content"].replace(chr(10), "<br>")}</div>'
+                formatted_history += f'<div class="chat-message bot-message"><strong></strong> {chat["content"].replace(chr(10), "<br>")}</div>'
         
         return chat_history, formatted_history
         
@@ -699,7 +699,7 @@ def chat_with_ai(message, chat_history):
             if chat["role"] == "user":
                 formatted_history += f'<div class="chat-message user-message"><strong>You:</strong> {chat["content"]}</div>'
             else:
-                formatted_history += f'<div class="chat-message bot-message"><strong>Vitalmina:</strong> {chat["content"].replace(chr(10), "<br>")}</div>'
+                formatted_history += f'<div class="chat-message bot-message"><strong></strong> {chat["content"].replace(chr(10), "<br>")}</div>'
         
         return chat_history, formatted_history
 
