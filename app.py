@@ -208,7 +208,7 @@ css = """
     border: 1px solid #272a2c;
 }
 .meal-log {
-    background: #fff3cd;
+    background: #eacd70;
     padding: 20px;
     border-radius: 10px;
     margin: 15px 0;
@@ -499,7 +499,7 @@ def analyze_meal(meal_type, meal_description, estimated_calories, satisfaction):
         
         analysis_html = f"""
         <div class="analysis-box">
-            <h4>AI Meal Analysis <span class="flash-badge">Flash</span></h4>
+            <h4>AI Meal Analysis</h4>
             <div class="meal-log">
                 <strong>Meal:</strong> {meal_entry['description']}<br>
                 <strong>Type:</strong> {meal_entry['meal_type']}<br>
@@ -558,8 +558,8 @@ def generate_fitness_plan():
         
         plan_html = f"""
         <div class="analysis-box">
-            <h4>Your Personalized Fitness Plan <span class="flash-badge">Flash</span></h4>
-            <div style="background: #fff3e0; padding: 25px; border-radius: 10px; margin: 20px 0; border: 1px solid #ffeaa7;">
+            <h4>Your Personalized Fitness Plan</h4>
+            <div style="background: #fff3e0; padding: 25px; border-radius: 10px; margin: 20px 0; border: 1px solid #3b3a37;">
                 {fitness_plan_text.replace(chr(10), '<br>')}
             </div>
             <p><strong>Generated on:</strong> {fitness_plan['generated_date']}</p>
