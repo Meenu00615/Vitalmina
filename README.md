@@ -13,7 +13,7 @@ Devpost Hackathon
 
 <img width="2879" height="1345" alt="image" src="https://github.com/user-attachments/assets/1f065b31-011d-483b-997d-9a34698db06f" />
 
-<img width="2866" height="1496" alt="image" src="https://github.com/user-attachments/assets/6f70da8c-ec84-4427-b659-247242274d8b" />
+<img width="2879" height="1431" alt="image" src="https://github.com/user-attachments/assets/ae40611a-e780-43f9-a71e-f4dab36a0fd4" />
 
 
 
