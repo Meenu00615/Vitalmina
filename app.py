@@ -716,7 +716,6 @@ def create_interface():
         <div class="navbar">
             <div class="nav-brand">Vitalmina</div>
             <div class="nav-links">
-                <a href="#" class="nav-link">Home</a>
 
             </div>
             <div class="nav-actions">
