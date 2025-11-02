@@ -717,13 +717,10 @@ def create_interface():
             <div class="nav-brand">Vitalmina</div>
             <div class="nav-links">
                 <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Service</a>
-                <a href="#" class="nav-link">How It Works</a>
-                <a href="#" class="nav-link">Pricing</a>
+
             </div>
             <div class="nav-actions">
                 <button class="nav-link">Login</button>
-                <button class="btn-primary">GET STARTED</button>
             </div>
         </div>
         """)
@@ -737,7 +734,6 @@ def create_interface():
                     <div class="hero-content">
                         <h1 class="hero-title">FITNESS JOURNEY,<br>AI-OPTIMIZED</h1>
                         <p class="hero-subtitle">Achieve Weight Loss, Muscle Gain, Or A Healthier Lifestyle<br>Effortlessly With AI-Driven Personalized Training</p>
-                        <button class="hero-cta">LET'S START</button>
                     </div>
                 </div>
                 """)
