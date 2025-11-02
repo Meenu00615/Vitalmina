@@ -205,6 +205,7 @@ css = """
     border-radius: 12px;
     border-left: 5px solid var(--success-color);
     margin: 20px 0;
+    color: black;
     border: 1px solid #272a2c;
 }
 .meal-log {
