@@ -635,7 +635,7 @@ def chat_with_ai(message, chat_history):
             if chat["role"] == "user":
                 formatted_history += f'<div class="chat-message user-message"><strong>You:</strong> {chat["content"]}</div>'
             else:
-                formatted_history += f'<div class="chat-message bot-message"><strong>FitFuel AI:</strong> {chat["content"].replace(chr(10), "<br>")}</div>'
+                formatted_history += f'<div class="chat-message bot-message"><strong></strong> {chat["content"].replace(chr(10), "<br>")}</div>'
         
         return chat_history, formatted_history
     
@@ -648,7 +648,7 @@ def chat_with_ai(message, chat_history):
     try:
         # Create context-aware prompt
         context = f"""
-        You are FitFuel AI, a professional health and fitness assistant using the latest AI technology.
+        You are Vitalmina, a professional health and fitness assistant using the latest AI technology.
         
         User Profile: {user_profile if user_profile else "No profile created yet"}
         
@@ -686,7 +686,7 @@ def chat_with_ai(message, chat_history):
             if chat["role"] == "user":
                 formatted_history += f'<div class="chat-message user-message"><strong>You:</strong> {chat["content"]}</div>'
             else:
-                formatted_history += f'<div class="chat-message bot-message"><strong>FitFuel AI <span class="flash-badge">Flash</span>:</strong> {chat["content"].replace(chr(10), "<br>")}</div>'
+                formatted_history += f'<div class="chat-message bot-message"><strong>Vitalmina </strong> {chat["content"].replace(chr(10), "<br>")}</div>'
         
         return chat_history, formatted_history
         
@@ -699,7 +699,7 @@ def chat_with_ai(message, chat_history):
             if chat["role"] == "user":
                 formatted_history += f'<div class="chat-message user-message"><strong>You:</strong> {chat["content"]}</div>'
             else:
-                formatted_history += f'<div class="chat-message bot-message"><strong>FitFuel AI:</strong> {chat["content"].replace(chr(10), "<br>")}</div>'
+                formatted_history += f'<div class="chat-message bot-message"><strong>Vitalmina:</strong> {chat["content"].replace(chr(10), "<br>")}</div>'
         
         return chat_history, formatted_history
 
