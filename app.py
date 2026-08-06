@@ -7,7 +7,6 @@ from datetime import datetime
 import pandas as pd
 import os
 
-# Configure Gemini API with the latest Flash model
 def setup_gemini():
     api_key = os.getenv('GEMINI_API_KEY')
     
@@ -17,10 +16,8 @@ def setup_gemini():
     
     try:
         genai.configure(api_key=api_key)
-        # Use the latest Gemini Flash model - faster and more efficient
         model = genai.GenerativeModel('gemini-2.5-flash')
         
-        # Test the API
         print("Testing Gemini Flash API...")
         response = model.generate_content("Say 'Flash API Connected'")
         print(f"API Response: {response.text}")
@@ -32,16 +29,13 @@ def setup_gemini():
         print(f"ERROR: Gemini setup failed: {str(e)}")
         return None
 
-# Initialize model
 model = setup_gemini()
 
-# Global state
 user_profile = {}
 meal_log = []
 fitness_plan = {}
 chat_history = []
 
-# Professional CSS Styling with Fitness Theme
 css = """
 :root {
     --primary-color: #2c3e50;
@@ -416,7 +410,6 @@ button[data-testid="tab"].selected {
 }
 """
 
-# Profile Management
 def save_profile(name, age, gender, height, weight, goal, activity_level, dietary_preferences):
     global user_profile
     
@@ -452,7 +445,6 @@ def save_profile(name, age, gender, height, weight, goal, activity_level, dietar
     
     return "Profile saved successfully", profile_html
 
-# Meal Analysis
 def analyze_meal(meal_type, meal_description, estimated_calories, satisfaction):
     global meal_log
     
@@ -518,113 +510,6 @@ def analyze_meal(meal_type, meal_description, estimated_calories, satisfaction):
     except Exception as e:
         return f"Error analyzing meal: {e}", None
 
-# Fitness Plan Generation
-def generate_fitness_plan():
-    global fitness_plan
-    
-    if not user_profile:
-        return "Please create your profile first", None
-    
-    if not model:
-        return "AI service is currently unavailable. Please try again later.", None
-    
-    prompt = f"""
-    Create a personalized weekly fitness plan based on this user profile:
-    {json.dumps(user_profile, indent=2)}
-    
-    Please provide a comprehensive weekly plan that includes:
-    1. Daily workout routines (specify exercises, sets, reps)
-    2. Cardio recommendations
-    3. Rest days
-    4. Progression tips
-    5. Equipment needed (bodyweight or basic gym equipment)
-    
-    Make it appropriate for:
-    - Goal: {user_profile.get('goal')}
-    - Activity Level: {user_profile.get('activity_level')}
-    - Age: {user_profile.get('age')}
-    
-    Format the response in a clear, structured way.
-    Use sections and bullet points for better readability.
-    """
-    
-    try:
-        response = model.generate_content(prompt)
-        fitness_plan_text = response.text
-        
-        fitness_plan = {
-            'plan': fitness_plan_text,
-            'generated_date': datetime.now().strftime("%Y-%m-%d")
-        }
-        
-        plan_html = f"""
-        <div class="analysis-box">
-            <h4>Your Personalized Fitness Plan</h4>
-            <div style="background: #fff3e0; padding: 25px; border-radius: 10px; margin: 20px 0; border: 1px solid #3b3a37;">
-                {fitness_plan_text.replace(chr(10), '<br>')}
-            </div>
-            <p><strong>Generated on:</strong> {fitness_plan['generated_date']}</p>
-        </div>
-        """
-        
-        return "Fitness plan generated successfully", plan_html
-        
-    except Exception as e:
-        return f"Error generating fitness plan: {e}", None
-
-# Insights and Analytics
-def show_insights():
-    if not meal_log:
-        return "No meals logged yet. Start by analyzing some meals", None
-    
-    # Basic stats
-    total_meals = len(meal_log)
-    avg_satisfaction = sum(meal['satisfaction'] for meal in meal_log) / total_meals
-    total_calories = sum(meal['calories'] for meal in meal_log)
-    
-    # Create DataFrame for analysis
-    df = pd.DataFrame(meal_log)
-    df['date'] = pd.to_datetime(df['timestamp']).dt.date
-    
-    stats_html = f"""
-    <div class="analysis-box">
-        <h4>Your Nutrition Insights</h4>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>{total_meals}</h3>
-                <p>Total Meals</p>
-            </div>
-            <div class="stat-item">
-                <h3>{avg_satisfaction:.1f}/5</h3>
-                <p>Avg Satisfaction</p>
-            </div>
-            <div class="stat-item">
-                <h3>{total_calories}</h3>
-                <p>Total Calories</p>
-            </div>
-            <div class="stat-item">
-                <h3>{len(df['date'].unique())}</h3>
-                <p>Days Tracked</p>
-            </div>
-        </div>
-    </div>
-    """
-    
-    # Recent meals
-    recent_meals_html = "<div class='feature-card'><h4>Recent Meals</h4>"
-    for meal in meal_log[-3:]:
-        recent_meals_html += f"""
-        <div class="meal-log">
-            <strong>{meal['meal_type']}</strong> - {meal['timestamp']}<br>
-            <em>{meal['description']}</em><br>
-            Calories: {meal['calories']} | Satisfaction: {'★' * meal['satisfaction']}
-        </div>
-        """
-    recent_meals_html += "</div>"
-    
-    return stats_html + recent_meals_html, None
-
-# Chatbot Functionality
 def chat_with_ai(message, chat_history):
     if not model:
         error_msg = "AI service is currently unavailable. Please check if the API key is properly configured in Hugging Face secrets."
@@ -643,11 +528,9 @@ def chat_with_ai(message, chat_history):
     if not message.strip():
         return chat_history, "Please enter a message."
     
-    # Add user message to chat history
     chat_history.append({"role": "user", "content": message})
     
     try:
-        # Create context-aware prompt
         context = f"""
         You are Vitalmina, a professional health and fitness assistant using the latest AI technology.
         
@@ -677,11 +560,7 @@ def chat_with_ai(message, chat_history):
         
         response = model.generate_content(context)
         ai_response = response.text
-        
-        # Add AI response to chat history
         chat_history.append({"role": "assistant", "content": ai_response})
-        
-        # Format chat history for display
         formatted_history = ""
         for chat in chat_history[-10:]:
             if chat["role"] == "user":
@@ -709,10 +588,8 @@ def clear_chat():
     chat_history = []
     return [], ""
 
-# Create Gradio Interface
 def create_interface():
     with gr.Blocks(css=css, theme=gr.themes.Soft()) as demo:
-        # Navigation Bar
         gr.HTML("""
         <div class="navbar">
             <div class="nav-brand">Vitalmina</div>
@@ -726,9 +603,7 @@ def create_interface():
         """)
         
         with gr.Tabs(elem_classes="tab-nav"):
-            # Home Tab - Redesigned
             with gr.TabItem("Home"):
-                # Hero Section
                 gr.HTML("""
                 <div class="hero-section">
                     <div class="hero-content">
@@ -738,7 +613,6 @@ def create_interface():
                 </div>
                 """)
                 
-                # Features Grid
                 gr.HTML("""
                 <div class="feature-grid">
                     <div class="feature-card">
@@ -759,7 +633,6 @@ def create_interface():
                 </div>
                 """)
                 
-                # Stats Section
                 gr.HTML("""
                 <div class="stats-grid">
                     <div class="stat-item">
@@ -777,7 +650,6 @@ def create_interface():
                 </div>
                 """)
             
-            # Profile Tab
             with gr.TabItem("Profile"):
                 with gr.Row():
                     with gr.Column():
@@ -809,7 +681,6 @@ def create_interface():
                     outputs=[gr.Textbox(label="Status"), profile_output]
                 )
             
-            # Meal Analysis Tab
             with gr.TabItem("Meal Analysis"):
                 with gr.Row():
                     with gr.Column():
@@ -832,27 +703,7 @@ def create_interface():
                     outputs=[gr.Textbox(label="Status"), meal_output]
                 )
             
-            # Fitness Plan Tab
-            with gr.TabItem("Fitness Plan"):
-                fitness_btn = gr.Button("Generate Fitness Plan", variant="primary")
-                fitness_output = gr.HTML()
-                fitness_btn.click(
-                    generate_fitness_plan,
-                    outputs=[gr.Textbox(label="Status"), fitness_output]
-                )
-            
-            # Insights Tab
-            with gr.TabItem("Insights"):
-                insights_btn = gr.Button("Refresh Insights", variant="primary")
-                insights_output = gr.HTML()
-                insights_btn.click(
-                    show_insights,
-                    outputs=[gr.Textbox(label="Status"), insights_output]
-                )
-            
-            # AI Chatbot Tab
             with gr.TabItem("AI Assistant"):
-                # Quick questions buttons
                 gr.Markdown("### Quick Questions")
                 with gr.Row():
                     q1_btn = gr.Button("Best exercises for weight loss", size="sm")
@@ -869,7 +720,6 @@ def create_interface():
                     q8_btn = gr.Button("How to break plateau", size="sm")
                     q9_btn = gr.Button("Keto meal ideas", size="sm")
                 
-                # Chat interface
                 chat_state = gr.State([])
                 chat_display = gr.HTML(label="Chat History")
                 
@@ -884,7 +734,6 @@ def create_interface():
                 with gr.Row():
                     clear_btn = gr.Button("Clear Chat", variant="secondary")
                 
-                # Chat functionality
                 send_btn.click(
                     chat_with_ai,
                     inputs=[chat_input, chat_state],
@@ -902,7 +751,6 @@ def create_interface():
                     outputs=[chat_state, chat_display]
                 )
                 
-                # Quick question handlers
                 quick_questions = [
                     "What are the best exercises for weight loss?",
                     "Explain keto diet basics for beginners",
@@ -927,13 +775,11 @@ def create_interface():
                         outputs=[chat_state, chat_display]
                     ).then(lambda: "", outputs=[chat_input])
         
-        # Footer
         gr.Markdown("---")
         gr.Markdown("### Vitalmina AI - Powered by Google Gemini 2.5 Flash")
         
     return demo
 
-# Launch the app
 if __name__ == "__main__":
     demo = create_interface()
     demo.launch(share=True)
