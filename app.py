@@ -593,12 +593,7 @@ def create_interface():
         gr.HTML("""
         <div class="navbar">
             <div class="nav-brand">Vitalmina</div>
-            <div class="nav-links">
-
-            </div>
-            <div class="nav-actions">
-                <button class="nav-link">Login</button>
-            </div>
+            <div class="nav-links"></div>
         </div>
         """)
         
@@ -626,8 +621,8 @@ def create_interface():
                         <p class="feature-description">Get instant nutritional insights and meal recommendations powered by advanced AI analysis</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3 class="feature-title">Progress Tracking</h3>
+                        <div class="feature-icon"></div>
+                        <h3 class="feature-title">AI Assistant</h3>
                         <p class="feature-description">Monitor your fitness journey with detailed analytics and personalized insights</p>
                     </div>
                 </div>
