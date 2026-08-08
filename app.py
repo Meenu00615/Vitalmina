@@ -611,17 +611,14 @@ def create_interface():
                 gr.HTML("""
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">💪</div>
                         <h3 class="feature-title">Personalized Workouts</h3>
                         <p class="feature-description">AI-generated fitness plans tailored to your goals, fitness level, and available equipment</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🍎</div>
                         <h3 class="feature-title">Smart Nutrition</h3>
                         <p class="feature-description">Get instant nutritional insights and meal recommendations powered by advanced AI analysis</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"></div>
                         <h3 class="feature-title">AI Assistant</h3>
                         <p class="feature-description">Monitor your fitness journey with detailed analytics and personalized insights</p>
                     </div>
@@ -631,16 +628,16 @@ def create_interface():
                 gr.HTML("""
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <h3>Keto Diet</h3>
+                        <h4>Keto Diet</h4>
                     </div>
                     <div class="stat-item">
-                        <h3>Workout Routine</h3>
+                        <h4>Workout Routine</h4>
                     </div>
                     <div class="stat-item">
-                        <h3>Meals Analyzed</h3>
+                        <h4>Meals Analyzed</h4>
                     </div>
                     <div class="stat-item">
-                        <h3>Best Exercises</h3>
+                        <h4>Best Exercises</h4>
                     </div>
                 </div>
                 """)
