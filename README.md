@@ -1,16 +1,5 @@
-<img width="2827" height="1522" alt="Screenshot 2025-11-02 190512" src="https://github.com/user-attachments/assets/e85d2319-10f6-43bd-a40c-8a7074078c98" /># Vitalmina
-Devpost Hackathon
-
-<img width="2866" height="1614" alt="Screenshot 2025-11-02 181042" src="https://github.com/user-attachments/assets/13fe7917-6ea1-44d2-9b1f-0ec15afe3235" />
-
-<img width="2872" height="1308" alt="Screenshot 2025-11-02 181103" src="https://github.com/user-attachments/assets/a6467554-b339-44b7-aae4-d2a966315ee9" />
-
-<img width="2841" height="981" alt="Screenshot 2025-11-02 190538" src="https://github.com/user-attachments/assets/4f16a3e1-dd31-4308-809e-1babdd17fedc" />
-
-<img width="2827" height="1522" alt="Screenshot 2025-11-02 190512" src="https://github.com/user-attachments/assets/e02c9a1d-4ca3-49f3-94cb-df1c4e699425" />
-
-<img width="2879" height="1431" alt="Screenshot 2025-11-02 184445" src="https://github.com/user-attachments/assets/9f97129d-c9b4-417e-85c3-1f1ec434117a" />
-
-<img width="2866" height="1496" alt="Screenshot 2025-11-02 181227" src="https://github.com/user-attachments/assets/2e57884d-9bb5-4f96-b950-416adf2d36fd" />
-
-
+## Within 5 Second AI Assistant Answer
+<img width="2838" height="1535" alt="image" src="https://github.com/user-attachments/assets/a58b2fb2-f896-4162-9d80-cb7c804726fb" />
+<img width="2836" height="1533" alt="image" src="https://github.com/user-attachments/assets/3820702b-9486-4907-be0a-20dd52a65a3a" />
+<img width="2839" height="1542" alt="image" src="https://github.com/user-attachments/assets/d1a241d2-d48d-4587-bcc2-2f56a2a04a64" />
+<img width="2837" height="1533" alt="image" src="https://github.com/user-attachments/assets/a939db26-8646-4b11-ad6b-77f13a0171d7" />
